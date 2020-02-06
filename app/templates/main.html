@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="../static/style.css" rel="stylesheet" type="text/css">
+<title>User Information Form</title>
+</head>
+<body>
+    <div>
+        <h1>Enter User Information</h1>
+    </div>
+    <div>
+        {#WTF UserForm instance will be passed in-- refrenced here as form.#}
+        {#using POST method to send data in the body of request rather than default methods GET(sends in URL)#}
+        <form action="" method="post" novalidate>
+        {#uses the secret key from config to protect from form attacks#}
+         {{ form.hidden_tag() }}
+            <p>
+                {{ form.firstName.label }}<br>
+                {{ form.firstName(size=32) }}
+            </p>
+            <p>
+                {{ form.lastName.label }}<br>
+                {{ form.lastName(size=32) }}
+            </p>
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=50) }}
+            </p>
+            <p>
+                {{ form.age.label }}<br>
+                {{ form.lastName(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+</body>
+</html>
